@@ -1,6 +1,8 @@
 'Sorry for the dirty code. It was written in 15 minutes. :D
 'CONSOLE APPLICATION!
 
+'Sorry for the dirty code. It was written in 15 minutes. :D
+
 Imports System.IO
 Imports System.Text.RegularExpressions
 Imports System.Threading
@@ -10,6 +12,7 @@ Module MusicRenamer
     Sub Main()
         Try
             Dim regexstring As String = ""
+            Dim renamed As Integer = 0
             Console.Title = "MUSIC RENAME"
             Console.WriteLine("=> MUSIC RENAME <=")
             Console.WriteLine("Enter your music folder path: ")
@@ -68,14 +71,22 @@ Module MusicRenamer
                 Environment.Exit(0)
             End If
             If (cki.Key = ConsoleKey.Y) Then
-                Console.WriteLine("Renaiming.")
+                Console.WriteLine("")
+                Console.Write("Renaiming.")
                 For Each frii In fiiArr
                     Dim nn As String = frii.Name
                     Dim regOptions As RegexOptions = RegexOptions.IgnoreCase Or RegexOptions.Singleline
                     Dim out As String = Regex.Replace(nn, "([0-9])\w+. ", String.Empty)
                     My.Computer.FileSystem.RenameFile(path & "\" & frii.Name, out)
                     Console.Write(".")
+                    renamed += 1
                 Next frii
+                Console.WriteLine("")
+                Console.WriteLine("")
+                Console.WriteLine("")
+                Console.WriteLine("------------------------------------------------")
+                Console.WriteLine(renamed & " Songs renamed")
+                Console.ReadKey()
             End If
         Catch ex As Exception
             Console.BackgroundColor = ConsoleColor.DarkRed
