@@ -1,4 +1,5 @@
 'Sorry for the dirty code. It was written in 15 minutes. :D
+'CONSOLE APPLICATION!
 
 Imports System.IO
 Imports System.Text.RegularExpressions
