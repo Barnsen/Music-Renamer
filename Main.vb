@@ -1,8 +1,6 @@
 'Sorry for the dirty code. It was written in 15 minutes. :D
 'CONSOLE APPLICATION!
 
-'Sorry for the dirty code. It was written in 15 minutes. :D
-
 Imports System.IO
 Imports System.Text.RegularExpressions
 Imports System.Threading
@@ -76,7 +74,7 @@ Module MusicRenamer
                 For Each frii In fiiArr
                     Dim nn As String = frii.Name
                     Dim regOptions As RegexOptions = RegexOptions.IgnoreCase Or RegexOptions.Singleline
-                    Dim out As String = Regex.Replace(nn, "([0-9])\w+. ", String.Empty)
+                    Dim out As String = Regex.Replace(nn, regexstring, String.Empty)
                     My.Computer.FileSystem.RenameFile(path & "\" & frii.Name, out)
                     Console.Write(".")
                     renamed += 1
